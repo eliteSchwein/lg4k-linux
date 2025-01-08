@@ -18,11 +18,15 @@ This was tested on Ubuntu 20.04 LTS and Fedora 32. Linux distributions other tha
 * run `./build.sh`
   + Note: switch to `fedora` branch if it doesn't compile and try again
 * run `sudo ./install.sh`
-* run `sudo modprobe cx511h` or reboot
+* run `sudo modprobe gc573` or reboot
 
 ## ToDo
 
 * ~~Make driver load automatically~~
 * Maybe see if we can send a signal to turn off the LEDs by looking at the Windows driver
 * Check some audio issues in OBS and see why RGB24 doesn't work in there either
+
+## Specific for this repo
+* i removed alsa fully, i only want it for video. not audio, so i removed it.
+* i used some patches that chatgpt recommended, it seems to work on arch with 6.12 kernel but i will test it on a debian 12 machine.
 

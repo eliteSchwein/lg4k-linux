@@ -194,7 +194,6 @@ int board_probe(struct device *dev,unsigned long driver_info)
 	    pr_info("subsystem_id=%x\n", subsystem_id);
 
         pic_bmp_init(cxt_mgr, no_signal_pic, out_of_range_pic, copy_protection_pic);
-        board_alsa_init(cxt_mgr); 
         board_v4l2_init(cxt_mgr,subsystem_id);  
         //aver_xilinx_sha204_init(aver_xilinx_handle);
         

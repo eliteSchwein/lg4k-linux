@@ -18,7 +18,6 @@
 #include "cxt_mgr.h"
 #include "mem_model.h"
 #include "pci_model.h"
-#include "alsa_model.h"
 #include "debug.h"
 
 typedef struct
@@ -338,8 +337,6 @@ static int pci_model_suspend (struct pci_dev *pci_dev, pm_message_t state)
 
     if (cxt_mgr)
     {
-        alsa_model_suspend(cxt_manager_get_context(cxt_mgr,ALSA_CXT_ID,0));
-
         pci_model_drv_cxt->suspend_func(dev);
 
         free_irq(pci_dev->irq, pci_cxt);
@@ -403,8 +400,6 @@ static int pci_model_resume(struct pci_dev *pci_dev)
     pci_set_master(pci_dev);
 
     pci_model_drv_cxt->resume_func(dev);
-
-    alsa_model_resume(cxt_manager_get_context(cxt_mgr,ALSA_CXT_ID,0));
 
     return 0;
 }
